@@ -1,7 +1,7 @@
 \documentclass[draft]{beamer}
 
 \usepackage{fontspec,xunicode,xltxtra}
-\usepackage[french]{babel}
+\usepackage[english]{babel}
 \usepackage{microtype}
 \usepackage{default}	
 
@@ -25,7 +25,7 @@
 \newfontfamily\DejaSans{DejaVu Sans}
 \setbeamerfont{title}{family=\texttt,size=\huge}
 \usepackage[scale=2]{ccicons}
-% \newfontfamily\unicodefun[Ligatures=TeX]{Symbola}
+\newfontfamily\unicodefun[Ligatures=TeX]{Symbola}
 \newfontfamily\unicodefun{Droid Sans}
 \title{Rethinking the DAW paradigm}
 \subtitle{With i-score \& the LibAudioStream}
@@ -67,9 +67,9 @@
 	\Large
 	\begin{itemize}
         \item<1-> Skeuomorphic (Most DAWs).
-		\item<2-> Dataflows (PureData, Max, OpenMusic, \dots)
-		\item<3-> Text (Csound, ChucK, SuperCol, Nyquist, \dots)
-		\item<4-> Sometimes multiple possibilities~\\ (Kyma, Antescofo, \dots)
+		\item<2-> Dataflows (\textbf{PureData}, \textbf{Max}, \textbf{OpenMusic}, \dots)
+		\item<3-> Text (\textbf{Csound}, \textbf{ChucK}, \textbf{SuperCol}, \textbf{Nyquist}, \dots)
+		\item<4-> Sometimes multiple possibilities~\\ (\textbf{Kyma}, \textbf{Antescofo}, \dots)
         \item<5-> Many others !
         \item<6-> Most are open for extensibility.
 	\end{itemize}
@@ -187,54 +187,64 @@
 \section{Description}
 
 \begin{frame}	
-    \frametitle{Tools}    
+    \frametitle{Origin}    
     \Large
     \begin{itemize}
-        \item i-score~\\ \url{i-score.org}~\\$\rightarrow$ software for interactive show control.~\\~\\
-        \item LibAudioStream\\ \url{github.com/sletz/libaudiostream}~\\$\rightarrow$ sequencer-as-a-library.
+        \item \textbf{i-score}~\\ \url{i-score.org}~\\$\rightarrow$ software for interactive show control.~\\~\\
+        \item \textbf{LibAudioStream}\\ \url{github.com/sletz/libaudiostream}~\\$\rightarrow$ sequencer-as-a-library.~\\~\\
+        \item \textbf{Audio plug-in} for i-score.
+    \end{itemize}   
+     
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Vocabulary}   
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/example.png}
+        \end{figure}
+\end{frame}
+
+\subsection{Audio processes}
+\begin{frame}	
+    \frametitle{Audio processes}    
+    \Large
+    \begin{itemize}
+        \item Soundfile reading.
+        \item Effect chains.
+        \item Audiograph features : send and return audio from different points in the score.
+        \item Mixing.
     \end{itemize}    
 \end{frame}
 
-
+\section{Method}
+\begin{frame}
+    \frametitle{The i-score audio graph}    
+    \Large
+    \begin{itemize}
+        \item Audiostreams should be available for reading everywhere in the score : \\ $\rightarrow$ \textbf{flowgraph}.
+        \item Not shown: it is not the main use case but a tool. UI focus is on the \textbf{temporal} aspect.
+        \item For now the graph creation is \textbf{static}.
+    \end{itemize}    
+\end{frame}
 \section{Demo}
-\subsection{Processus audio}
-\begin{frame}	
-	\frametitle{Processus offerts}    
-	\Large
-	Rappel : \textbf{processus} : quelque chose qui s'exécute sur une durée. Par opposition à l'\textbf{état}, instantané.
-	\begin{itemize}
-		\item Lecture de fichier son (\textbf{Audio}).
-		\item Chaîne d'effets audio (\textbf{Effects}).
-		\item Processus audiographe (\textbf{Send}, \textbf{Return}).
-		\item Processus de mixage (\textbf{Mix}).
-	\end{itemize}    
-\end{frame}
 
-\section{Audiographes}
-\subsection{Définitions}
 \begin{frame}
-	\frametitle{Audiographes...}    
-	\Large
-	\begin{itemize}
-		\item On veut pouvoir réutiliser un même AudioStream à plusieurs endroits :  \\ $\rightarrow$ \textbf{Flowgraph} comme dans PureData, Max\dots
-		\item Pour qu'un effet fonctionne, le flux à l'origine de l'effet doit l'être aussi.~\\
-		La construction des AudioStream \textbf{impose un ordre}.
-		\item Graphe de dépendances + tri topologique $=$ création des flux dans l'ordre.
-	\end{itemize}    
-\end{frame}
-
-\subsection{Audiographes dans i-score}
-\begin{frame}
-	\frametitle{... dans i-score}    
+    \frametitle{The i-score audio graph : mixing}    
 	\Large
 	
-    On utilise comme unité de mixage la contrainte temporelle : 
-    chaque contrainte se mixe dans son processus parent.
-	
+    Mixing unit : the temporal constraint.
+    
+    \begin{itemize}
+        \item Each constraint mixes itself in its parent process.
+        \item Each process mixes itself in its parent constraint.
+    \end{itemize}
+    
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.6\textwidth]{images/mixage.png}
-		\caption{Les objets se mixent en suivant les flèches}
+		\caption{Objects mix themselves together following the arrows}
 	\end{figure}
 \end{frame}
 
