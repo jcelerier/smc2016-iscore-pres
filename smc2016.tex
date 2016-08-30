@@ -15,8 +15,8 @@
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{pstricks}
-\setmainfont{Merriweather Sans}
-\setsansfont{Merriweather Sans}
+\setmainfont{Fira Sans}
+\setsansfont{Noto Sans}
 \setmonofont{Fira Mono}
 \captionsetup[subfigure]{labelformat=empty}
 \captionsetup[figure]{labelformat=empty}
@@ -25,8 +25,8 @@
 \newfontfamily\DejaSans{DejaVu Sans}
 \setbeamerfont{title}{family=\texttt,size=\huge}
 \usepackage[scale=2]{ccicons}
-\newfontfamily\unicodefun[Ligatures=TeX]{Symbola}
-
+% \newfontfamily\unicodefun[Ligatures=TeX]{Symbola}
+\newfontfamily\unicodefun{Droid Sans}
 \title{Rethinking the DAW paradigm}
 \subtitle{With i-score \& the LibAudioStream}
 \date{}
@@ -66,20 +66,137 @@
 	\frametitle{Music software UIs}    
 	\Large
 	\begin{itemize}
-		\item<1-> Dataflows (PureData, Max, OpenMusic, \dots)
-		\item<2-> Text (Csound, ChucK, SuperCol, Nyquist, \dots)
-		\item<3-> Sometimes multiple possibilities~\\ (Kyma, Antescofo, \dots)
-        \item<3-> Most are open for extensibility.
+        \item<1-> Skeuomorphic (Most DAWs).
+		\item<2-> Dataflows (PureData, Max, OpenMusic, \dots)
+		\item<3-> Text (Csound, ChucK, SuperCol, Nyquist, \dots)
+		\item<4-> Sometimes multiple possibilities~\\ (Kyma, Antescofo, \dots)
+        \item<5-> Many others !
+        \item<6-> Most are open for extensibility.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Méthode}    
-	\Large
+    Graphe échelle d'interactivité
+\end{frame}
+\begin{frame}
+	\Huge
     \centering
-    What if...
+    \textbf{What if...}
 \end{frame}
 
+
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/1.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/2.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/3.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/4.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/5.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/6.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/7.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/8.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/9.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/10.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/11.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/12.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/13.png}
+    \end{figure}
+\end{frame}
+\begin{frame} 
+    \Large
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/screens/14.png}
+    \end{figure}
+\end{frame}
+
+\section{Description}
+
+\begin{frame}	
+    \frametitle{Tools}    
+    \Large
+    \begin{itemize}
+        \item i-score~\\ \url{i-score.org}~\\$\rightarrow$ software for interactive show control.~\\~\\
+        \item LibAudioStream\\ \url{github.com/sletz/libaudiostream}~\\$\rightarrow$ sequencer-as-a-library.
+    \end{itemize}    
+\end{frame}
+
+
+\section{Demo}
 \subsection{Processus audio}
 \begin{frame}	
 	\frametitle{Processus offerts}    
